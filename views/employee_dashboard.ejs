@@ -1,0 +1,86 @@
+<% if(locals.user) {%>
+<div class="container-fluid" style="background-image: url(https://images.unsplash.com/photo-1593959734793-6e92d102da1e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZGFyayUyMGJsdWV8ZW58MHx8MHx8fDA%3D);">
+  <div class="row">
+    <!-- Assigned reviews -->
+    <div class="col-md-12 col-lg-7 my-2">
+      <h1 class="text-center" style="color: #0026ff;color: #fff; /* Text color */
+      text-shadow: 0 0 10px rgb(0, 4, 255), /* Glow color */
+                   0 0 20px #0026ff,
+                   0 0 30px #1100ff;">Assigned reviews</h1>
+      <div class="d-flex justify-content-center align-items-center">
+        <div
+          class="d-flex flex-wrap justify-content-center justify-content-lg-start ms-lg-4"
+          style="width: 100%"
+        >
+          <% for(review of assignedReviews) {%>
+          <div class="col-8 col-lg-5 p-2 m-3 rounded shadow">
+            <form
+              action="/review/create/<%=employee._id%>"
+              class="d-flex flex-column"
+              method="POST"
+            >
+              <div class="mb-3">
+                <label for="recipient " class="fw-semibold" style="color: #fff;">Recipient: </label>
+                <input
+                  type="email"
+                  class="form-control mt-2"
+                  id="recipient"
+                  value="<%= review.email %>"
+                  readonly
+                  name="recipient_email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="feedback-form" class="form-label fw-semibold" style="color: #fff;"
+                  >Feedback:</label
+                >
+                <textarea
+                  class="form-control"
+                  id="feedback-form"
+                  name="feedback"
+                  rows="3"
+                ></textarea>
+              </div>
+              <button
+                class="btn btn-primary align-self-end"
+                style="width: 40%"
+                type="submit"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+          <%} %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feedbacks given by others -->
+    <div class="col-12 col-lg-5 my-2">
+      <h1 class="text-center" style="color: #0026ff;color: #fff; /* Text color */
+      text-shadow: 0 0 10px rgb(0, 4, 255), /* Glow color */
+                   0 0 20px #0026ff,
+                   0 0 30px #1100ff;">Feedbacks by others</h1>
+
+      <div class="d-flex flex-column justify-content-center align-items-center" >
+        <% for (review of reviewsFromOthers) {%>
+        <div class="p-2 border rounded my-2" style="width: 80%; background-color: rgb(109, 255, 255);">
+          <dl>
+            <dt class="fw-semibold">
+              Reviewer:
+              <span class="fw-normal">
+                <%= review.reviewer.email %>(<%= review.reviewer.username %>)
+              </span>
+            </dt>
+            <dt class="fw-semibold">
+              Feedback:
+              <span class="fw-normal"> <%= review.review %> </span>
+            </dt>
+          </dl>
+        </div>
+        <%} %>
+      </div>
+    </div>
+  </div>
+</div>
+<%} %>

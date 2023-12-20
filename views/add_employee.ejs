@@ -1,0 +1,85 @@
+<% if(locals.user && locals.user.role === 'admin') {%>
+<div class="d-flex justify-content-center p-4 p-md-0" style="background-image: url(https://images.unsplash.com/photo-1593959734793-6e92d102da1e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZGFyayUyMGJsdWV8ZW58MHx8MHx8fDA%3D);">
+  <form
+    class="rounded p-3 col-12 col-md-4 mt-4 shadow-lg"
+    action="/create-employee"
+    method="POST"
+  >
+    <h3 class="mb-3 text-center" style="color: #0026ff;color: #fff; /* Text color */
+    text-shadow: 0 0 10px rgb(0, 4, 255), /* Glow color */
+                 0 0 20px #0026ff,
+                 0 0 30px #1100ff;">Add an employee</h3>
+
+    <!-- Username input -->
+    <div class="form-outline mb-2">
+      <label class="form-label" for="username" style="color: #fff;">User name</label>
+      <input
+        type="text"
+        id="name"
+        name="username"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Email input -->
+    <div class="form-outline mb-2">
+      <label class="form-label" for="email" style="color: #fff;">Email address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-2">
+      <label class="form-label" for="password" style="color: #fff;">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Confirm password input -->
+    <div class="form-outline mb-2">
+      <label class="form-label" for="confirm_password" style="color: #fff;">Confirm password</label>
+      <input
+        type="password"
+        id="confirm_password"
+        name="confirm_password"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="my-3 d-flex justify-content-between">
+
+      <!-- Cancel button -->
+      <a href="/admin-dashboard" 
+        class="btn text-light bg-danger btn-block fw-semibold"       
+        style="width: 45%;">      
+          CANCEL
+      </a>
+      
+      <!-- Add button -->
+      <button
+      type="submit"
+      class="btn btn-primary fw-semibold"
+      style="width: 45%"
+      >
+      ADD
+    </button>
+    
+  </div>
+      
+
+    
+</div>
+
+<%} %>

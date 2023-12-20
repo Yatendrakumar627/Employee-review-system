@@ -1,0 +1,93 @@
+<div class="d-flex justify-content-center p-4 p-md-0" style=" background-image: url(https://33.media.tumblr.com/a014d9808c494579f54452d6d5c5b0bd/tumblr_na3mzp1Pt91s2t3cto1_500.gif);">
+  <form
+    class="rounded p-3 col-12 col-md-4 mt-4 shadow-lg"
+    action="/create"
+    method="POST"
+  >
+    <h3 class="mb-3 text-center" style="color: #fff; /* Text color */
+    text-shadow: 0 0 10px #fff, /* Glow color as white */
+                 0 0 20px #fff,
+                 0 0 30px #fff;">Sign up</h3>
+
+    <!-- Username input -->
+    <div class="form-outline mb-2">
+      <label class="form-label" for="username" style="color: #fff;">User name</label>
+      <input
+        type="text"
+        id="name"
+        name="username"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Email input -->
+    <div class="form-outline mb-2">
+      <label class="form-label" for="email" style="color: #fff;">Email address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-2">
+      <label class="form-label" for="password" style="color: #fff;">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- Confirm password input -->
+    <div class="form-outline mb-2">
+      <label class="form-label" for="confirm_password" style="color: #fff;">Confirm password</label>
+      <input
+        type="password"
+        id="confirm_password"
+        name="confirm_password"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <!-- User role input -->
+    <div class="form-outline mb-2">
+      <label class="form-label" for="role" style="color: #fff;">Role</label>
+      <select
+        class="form-select"
+        id="role"
+        name="role"
+        aria-label="Default select example"
+        required
+      >
+        <option selected value="employee" >Employee</option>
+        <option value="admin">Admin</option>
+      </select>
+    </div>
+
+    <!-- Buttons container -->
+    <div class="my-3 d-flex justify-content-between">
+      <!-- signup button -->
+      <button
+        type="submit"
+        class="btn btn-primary fw-semibold"
+        style="width: 100%"
+      >
+        SIGN UP
+      </button>
+      <!-- google signup button button -->
+    </div>
+
+    <!-- Link to redierct to login page -->
+    <div class="text-center">
+      <p style="color: #fff;" >Already registered? <a href="/">Login</a></p>
+    </div>
+  </form>
+</div>

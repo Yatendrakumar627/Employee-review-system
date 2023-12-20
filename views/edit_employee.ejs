@@ -1,0 +1,84 @@
+<% if (locals.user) {%>
+  <div class="d-flex flex-column flex-md-row justify-content-around  p-2" style="background-image: url(https://images.unsplash.com/photo-1593959734793-6e92d102da1e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZGFyayUyMGJsdWV8ZW58MHx8MHx8fDA%3D);">
+    <div class="container mt-4 col-md-4 ">
+      <h4 class="text-center" style="color: #0026ff;color: #fff; /* Text color */
+      text-shadow: 0 0 10px rgb(0, 4, 255), /* Glow color */
+                   0 0 20px #0026ff,
+                   0 0 30px #1100ff;">Employee details</h4>
+
+      <form class="row g-3 mt-1 border rounded p-2 shadow mt-4" 
+        style="--bs-border-opacity: 0.5"
+        action="/update-employee/<%= employee._id %>" 
+        method="POST">
+
+        <!-- Name input -->
+        <div class="form-outline ">
+          <label class="form-label" for="username" style="color: #fff;">User name</label>
+          <input type="text" id="name" name="username" class="form-control" value="<%= employee.username %>" required />
+        </div>
+
+        <!-- Email input -->
+        <div class="form-outline ">
+          <label class="form-label" for="email" style="color: #fff;">Email address</label>
+          <input type="email" id="email" name="email" class="form-control" value="<%= employee.email %>" readonly
+            required />
+        </div>
+
+        <div>
+          <span class="fw-semibold" style="color: #fff;">Current role: <%= employee.role %></span>
+        </div>
+
+        <!-- role input -->
+        <div class="form-outline mb-2">
+          <label class="form-label" for="role" style="color: #fff;">Select Role</label>
+          <select class="form-select" id="role" name="role" aria-label="Default select example" required>
+            <option selected value="employee">Employee</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+
+        <div class="d-flex  justify-content-end" >
+          <button type="submit" class="btn btn-primary" style="width:50%;">Update</button>
+        </div>
+
+      </form>
+    </div>
+
+
+    <!-- Reviews section -->
+    <div class="container mt-4 col-md-4 ">
+      <h4 class="text-center" style="color: #0026ff;color: #fff; /* Text color */
+      text-shadow: 0 0 10px rgb(0, 4, 255), /* Glow color */
+                   0 0 20px #0026ff,
+                   0 0 30px #1100ff;">Feedbacks given by other users</h4>
+
+      <% for(review of reviewsFromOthers) {%>
+        <div>
+          <form action="/review/update-review/<%= review._id%>" method="POST" class="rounded p-3 mt-4 border shadow" >
+            
+            <div class="form-outline mb-2">
+              <label for="recipient" class="form-label">From</label>
+              <input type="text" id="recipient" class="form-control" value="<%= review.reviewer.email %>" readonly>
+            </div>
+
+            <div>
+              <label for="feedback" class="form-label">Feedback</label>
+              <textarea class="form-control " id="feedback-form" name="feedback" rows="3"><%=review.review %></textarea>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-primary mt-2" type="submit" style="width: 40%;">Update</button>
+            </div>
+
+          </form>
+          <%} %>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <%} %>

@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-center p-4 p-md-0" style="background-image: url(https://i.gifer.com/7gRx.gif);">
+  <form
+    class="rounded p-3 col-12 col-md-4 my-4 shadow-lg"
+    method="POST"
+    action="/create-session"
+  >
+    <h3 class="mb-4 text-center" style="color: #fff; /* Text color */
+    text-shadow: 0 0 10px #fff, /* Glow color as white */
+                 0 0 20px #fff,
+                 0 0 30px #fff;">Sign in</h3>
+    <!-- Email input -->
+    <div class="form-outline mb-3">
+      <label class="form-label" for="email" style="color: aliceblue;">Email address</label>
+      <input type="email" id="email" name="email" class="form-control" />
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-3">
+      <label class="form-label" for="password" style="color: aliceblue;">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+      />
+    </div>
+
+    <div>
+      <!-- Login button -->
+      <button
+        type="submit"
+        class="btn btn-primary btn-block fw-semibold"
+        style="width: 100%"
+      >
+        LOGIN
+      </button>
+    </div>
+    <div>
+      <hr />
+    </div>
+
+    <!-- Link to redirect to signup page -->
+    <div class="text-center">
+      <p style="color: aliceblue;" >Not an user? <a href="/sign-up">Register</a></p>
+    </div>
+  </form>
+</div>
