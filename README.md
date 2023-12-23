@@ -52,7 +52,7 @@ The project is running on the port number provided by you.
 - MongoDB
 - ExpressJS
 - EJS
-- Bootstrap
+- Mongoose
 
 ### 📚 Libraries:
 
